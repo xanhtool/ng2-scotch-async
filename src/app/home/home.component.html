@@ -1,0 +1,24 @@
+<h2>Our Example</h2>
+<p>For example, you have a blogger component that will display blogger details and her posts. Blogger component will gets the list of posts from API.</p>
+
+<p>Instead of writing the logic of displaying the posts in the blogger component, you want to reuse the posts component that is created by your teammate, what you need to do is pass it the posts data.</p>
+
+<p>The posts component will then group the posts by category and display accordingly, like this: <img src="https://cdn.scotch.io/272/eChf8zRfRb6KMBXCiET5_Screen%20Shot%202016-12-30%20at%208.50.46%20PM.png" alt=""></p>
+
+<h2>Isn't That Easy?</h2>
+
+<p>It might look easy at the first glance. Most of the time we will initiate all the process during our component initialization time - during ngOnInit life cycle hook (refer here for more details on component life cycle hook).</p>
+
+<p>In our case, you might think that we should run the post grouping logic during ngOnInit of the posts component.</p>
+
+<p>However, because the posts data is coming from server, when the blogger component passes the posts data to posts component, the posts component ngOnInit is already fired before the data get updated. Your post grouping logic will not be fired.</p>
+
+<h2>Which One Should I Use?</h2>
+
+<p>The famous question comes with the famous answer: It depends.</p>
+
+<p>Use *ngIf if you are sure that your changes run only once, it's very straightforward. Use ngOnChanges or BehaviorSubject if you want to listen to changes continuously or you want guarantee.</p>
+
+<p>Demo: <a href="https://ng-musing.firebaseapp.com/three-ways">https://ng-musing.firebaseapp.com/three-ways</a><br>
+Github: <a href="https://github.com/chybie/ng-musing/tree/master/src/app/three-ways">https://github.com/chybie/ng-musing/tree/master/src/app/three-ways</a><br>
+That's it. Happy Coding!</p>

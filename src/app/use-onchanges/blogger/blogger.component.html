@@ -1,0 +1,14 @@
+<h1>Posts by: {{ blogger }}</h1>
+<div>
+    <app-posts [data]="posts"></app-posts>
+</div>
+
+<p>
+  Please notes that changes is a key value pair object. The key is the name of the input property, in our case it's data. Whenever writing code in ngOnChanges, you may want to make sure that the logic run only when the target data changed, because you might have a few inputs.
+
+That's why we run our grouping logic only if there are changes in data.
+
+One thing I don't like about this solution is that we lose the strong typing and need to use magic string "data". In case we change the property name data to something else, we need to remember to change this as well.
+
+Of course we can defined another interface for that, but that's too much work.
+</p>

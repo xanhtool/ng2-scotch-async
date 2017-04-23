@@ -1,0 +1,9 @@
+<h1>Posts by: {{ blogger }}</h1>
+<div *ngIf="posts">
+   <app-posts [data]="posts"></app-posts>
+</div>
+
+<p>A few things to note:
+
+Since the grouping logic runs in ngOnInit, that means it will run only once. If there's any future updates on data (passed in from blogger component), it won't trigger again.
+Therefore, if someone change the posts: Post[] property in the blogger component to posts: Post[] = [], that means our grouping logic will be triggered once with empty array. When the real data kicks in, it won't be triggered again.</p>

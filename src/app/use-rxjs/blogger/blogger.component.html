@@ -1,0 +1,16 @@
+<h1>Posts by: {{ blogger }}</h1>
+<div>
+    <app-posts [data]="posts"></app-posts>
+</div>
+
+<p>First of all, if you are not aware, Javacript supports getter and setter like C# and Java, check MDN for more info. In our case, we split the data to use getter and setter. Then, we have a private variable _data to hold the latest value.
+
+To set a value to BehaviorSubject, we use .next(theValue). To get the value, we use .getValue(), as simple as that.
+
+Then during component initialization, we subscribe to the _data, listen to the changes, and call our grouping logic whenever changes happens.
+
+Take a note for observable and subject, you need to unsubscribe to avoid performance issues and possible memory leaks. You can do it manually in ngOnDestroyor you can use some operator to instruct the observable and subject to unsubscribe itself once it meet certain criteria.
+
+In our case, we would like to unsubscribe once the groupPosts has value. We can add this line in our subscription to achieve that.
+
+</p>

@@ -5,16 +5,32 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import {BlogService} from './blog.service';
+import { HomeComponent } from './home/home.component';
+import {AppRoutingModule} from './app-routing.module';
+
+import {UseIfModule} from './use-if/use-if.module';
+import {UseOnchangesModule} from './use-onchanges/use-onchanges.module';
+import {UseRxjsModule} from './use-rxjs/use-rxjs.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
+    UseIfModule,
+    UseOnchangesModule,
+    UseRxjsModule,
   ],
-  providers: [],
+  providers: [
+    BlogService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
